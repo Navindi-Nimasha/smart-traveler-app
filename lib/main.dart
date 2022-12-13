@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Login Page',
+      title: 'Flutter Login Page ',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
