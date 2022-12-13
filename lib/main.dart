@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'models/location/locationlist.dart';
+import 'models/location/locatinview.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LListPage(),
+      home: const LocationViewPage(),
     );
   }
 }
