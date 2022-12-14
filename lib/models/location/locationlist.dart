@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:dropdown_button2/dropdown_button2.dart";
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'locatinview.dart';
 import 'location.dart';
 
 class LListPage extends StatefulWidget {
@@ -202,8 +203,16 @@ class _LListPageState extends State<LListPage> {
                       mainAxisSpacing: 2,
                       crossAxisSpacing: 2,
                       childAspectRatio: 0.75),
-                  itemBuilder: (context, index) =>
-                      LocationCard(location: locations[index]),
+                  itemBuilder: (context, index) => LocationCard(
+                    location: locations[index],
+                    press: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            LocationViewPage(location: locations[index]),
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -246,71 +255,74 @@ class _LListPageState extends State<LListPage> {
 
 class LocationCard extends StatelessWidget {
   final Location location;
-  //final Function press;
+  final VoidCallback press;
   const LocationCard({
     Key? key,
     required this.location,
-    //required this.press,
+    required this.press,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.bottomLeft,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 19),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          //mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Container(
-              height: 160,
-              width: 160,
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 0, 0, 0),
-                borderRadius: BorderRadius.circular(18),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(18),
-                child: SizedBox.fromSize(
-                  size: const Size.fromRadius(18),
-                  child: Image.asset(
-                    location.image,
-                    height: 160,
-                    width: 160,
-                    fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: press,
+      child: Align(
+        alignment: Alignment.bottomLeft,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 19),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            //mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                height: 160,
+                width: 160,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 0, 0, 0),
+                  borderRadius: BorderRadius.circular(18),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(18),
+                  child: SizedBox.fromSize(
+                    size: const Size.fromRadius(18),
+                    child: Image.asset(
+                      location.image,
+                      height: 160,
+                      width: 160,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5),
-              child: Text(
-                location.name,
-                style: const TextStyle(
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 5),
+                child: Text(
+                  location.name,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 17,
+                    letterSpacing: 1,
+                  ),
+                ),
+              ),
+              // Padding(
+              //   padding: EdgeInsets.only(right: 9),
+              //   child: Icon(
+              //     Icons.star_rate,
+              //     size: 15,
+              //     color: Colors.white,
+              //   ),
+              // ),
+              const Text(
+                "Ratings: 4.5",
+                style: TextStyle(
                   color: Colors.white,
                   fontSize: 17,
                   letterSpacing: 1,
                 ),
               ),
-            ),
-            // Padding(
-            //   padding: EdgeInsets.only(right: 9),
-            //   child: Icon(
-            //     Icons.star_rate,
-            //     size: 15,
-            //     color: Colors.white,
-            //   ),
-            // ),
-            const Text(
-              "Ratings: 4.5",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 17,
-                letterSpacing: 1,
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

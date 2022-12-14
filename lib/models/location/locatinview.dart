@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
+import 'location.dart';
+
 class LocationViewPage extends StatelessWidget {
-  const LocationViewPage({super.key});
+  final Location location;
+
+  const LocationViewPage({super.key, required this.location});
+
+  //const LocationViewPage({super.key, this.locati});
+
+  // const LocationViewPage({super.key, required this.location});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +36,7 @@ class LocationViewPage extends StatelessWidget {
             )
           ],
         ),
-        body: Column(children: []),
+        body: BodyL(location: location),
         bottomNavigationBar: const GNav(
           backgroundColor: Color.fromARGB(179, 18, 66, 33),
           color: Colors.white,
@@ -62,6 +70,22 @@ class LocationViewPage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class BodyL extends StatelessWidget {
+  final Location location;
+
+  const BodyL({
+    super.key,
+    required this.location,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Text(location.name),
     );
   }
 }
