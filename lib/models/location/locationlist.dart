@@ -60,7 +60,7 @@ class _LListPageState extends State<LListPage> {
             children: <Widget>[
               Container(
                 alignment: Alignment.center,
-                height: 130,
+                height: 140,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(50),

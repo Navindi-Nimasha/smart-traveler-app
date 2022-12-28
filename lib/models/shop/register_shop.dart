@@ -1,7 +1,17 @@
 //import 'package:flutter/gestures.dart';
+// ignore_for_file: unused_field
+
+import 'dart:io';
+
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart';
+
+import '../../screens/loginpage.dart';
 
 class RegisterSPage extends StatelessWidget {
   const RegisterSPage({super.key});
@@ -144,11 +154,14 @@ class MyRequestSForm extends StatefulWidget {
 }
 
 class _MyRequestSFormState extends State<MyRequestSForm> {
-  final _formKey = GlobalKey<FormState>();
-  // ignore: non_constant_identifier_names
   final TextEditingController _Textcontroller = TextEditingController();
-  // ignore: non_constant_identifier_names
+
   final TextEditingController _TextcontrollerR = TextEditingController();
+
+  final TextEditingController _password = TextEditingController();
+  final TextEditingController _confirmpassword = TextEditingController();
+
+  final _formKey = GlobalKey<FormState>();
 
   final List<String> items = [
     'Ampara',
@@ -182,6 +195,30 @@ class _MyRequestSFormState extends State<MyRequestSForm> {
 
   // show the password or not
   bool _isObscure = true;
+
+  File? image;
+
+  Future pickImage() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (image == null) return;
+
+      //final imageTemporary = File(image.path);
+      final imagePermanent = await saveImagePermanently(image.path);
+      setState(() => this.image = imagePermanent);
+    } on PlatformException catch (e) {
+      // ignore: avoid_print
+      print('Faild to pick image: $e');
+    }
+  }
+
+  Future<File> saveImagePermanently(String imagePath) async {
+    final directory = await getApplicationDocumentsDirectory();
+    final name = basename(imagePath);
+    final image = File('${directory.path}/$name');
+
+    return File(imagePath).copy(image.path);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -261,9 +298,14 @@ class _MyRequestSFormState extends State<MyRequestSForm> {
                   child: TextFormField(
                     validator: (value) {
                       if (value == null || value.isEmpty) {
+                        return 'Invalid Email';
+                      }
+
+                      // ignore: unnecessary_string_escapes
+                      if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                          .hasMatch(value)) {
                         return 'Please enter a valid email';
                       }
-                      return null;
                     },
                     decoration: InputDecoration(
                       // filled: true,
@@ -373,7 +415,10 @@ class _MyRequestSFormState extends State<MyRequestSForm> {
                       if (value == null || value.isEmpty) {
                         return 'Please enter contact number';
                       }
-                      return null;
+
+                      if (value.length != 10) {
+                        return 'Enter a valid phone number';
+                      }
                     },
                     decoration: InputDecoration(
                       // filled: true,
@@ -424,12 +469,12 @@ class _MyRequestSFormState extends State<MyRequestSForm> {
                     border: Border.all(width: 2, color: Colors.white),
                   ),
                   child: TextFormField(
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please attach clear shop photo';
-                      }
-                      return null;
-                    },
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please attach clear shop photo';
+                    //   }
+                    //   return null;
+                    // },
                     decoration: InputDecoration(
                       // filled: true,
                       // fillColor: const Color.fromARGB(255, 119, 158, 119)
@@ -437,12 +482,18 @@ class _MyRequestSFormState extends State<MyRequestSForm> {
                       contentPadding:
                           const EdgeInsets.only(top: 13, bottom: 13),
                       border: InputBorder.none,
+                      suffixIcon: IconButton(
+                        icon: const Icon(
+                          Icons.add_a_photo_outlined,
+                        ),
+                        onPressed: () => pickImage(),
+                      ),
                       // enabledBorder: OutlineInputBorder(
                       //   borderSide: const BorderSide(
                       //       width: 1, color: Color.fromARGB(255, 241, 245, 237)),
                       //   borderRadius: BorderRadius.circular(60),
                       //),
-                      hintText: 'Shop Photo',
+                      hintText: 'Insert shop Photo',
                       icon: Padding(
                         padding: const EdgeInsets.only(left: 0),
                         child: Container(
@@ -463,7 +514,7 @@ class _MyRequestSFormState extends State<MyRequestSForm> {
                       hintStyle: textStyle,
                     ),
                     style: const TextStyle(fontSize: 18, color: Colors.white),
-                    keyboardType: TextInputType.name,
+                    keyboardType: TextInputType.none,
                     textInputAction: TextInputAction.done,
                   ),
                 ),
@@ -750,7 +801,9 @@ class _MyRequestSFormState extends State<MyRequestSForm> {
                       if (value == null || value.isEmpty) {
                         return 'Please re enter password';
                       }
-                      return null;
+                      if (_password.text != _confirmpassword.text) {
+                        return 'Password do not match';
+                      }
                     },
                     decoration: InputDecoration(
                       // filled: true,
@@ -838,8 +891,10 @@ class _MyRequestSFormState extends State<MyRequestSForm> {
                       onPressed: () {
                         // Validate returns true if the form is valid, or false otherwise.
                         if (_formKey.currentState!.validate()) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Processing Data')),
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => const LoginPage(),
+                            ),
                           );
                         }
                       },

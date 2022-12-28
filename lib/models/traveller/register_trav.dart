@@ -1,6 +1,14 @@
 //import 'package:flutter/gestures.dart';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart';
+import 'package:path_provider/path_provider.dart';
+
+import '../../screens/loginpage.dart';
 
 class RegisterTPage extends StatelessWidget {
   const RegisterTPage({super.key});
@@ -47,7 +55,7 @@ class RegisterTPage extends StatelessWidget {
                         child: IconButton(
                           icon: const Icon(
                             Icons.arrow_back,
-                            color: Color.fromARGB(255, 12, 12, 12),
+                            color: Color.fromARGB(255, 255, 255, 255),
                           ),
                           onPressed: () {
                             Navigator.pop(context);
@@ -148,8 +156,35 @@ class MyRequestTForm extends StatefulWidget {
 class _MyRequestTFormState extends State<MyRequestTForm> {
   final _formKey = GlobalKey<FormState>();
 
+  final TextEditingController _password = TextEditingController();
+  final TextEditingController _confirmpassword = TextEditingController();
+
+  File? image;
+
   // show the password or not
   bool _isObscure = true;
+
+  Future pickImage() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (image == null) return;
+
+      //final imageTemporary = File(image.path);
+      final imagePermanent = await saveImagePermanently(image.path);
+      setState(() => this.image = imagePermanent);
+    } on PlatformException catch (e) {
+      // ignore: avoid_print
+      print('Faild to pick image: $e');
+    }
+  }
+
+  Future<File> saveImagePermanently(String imagePath) async {
+    final directory = await getApplicationDocumentsDirectory();
+    final name = basename(imagePath);
+    final image = File('${directory.path}/$name');
+
+    return File(imagePath).copy(image.path);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -231,7 +266,10 @@ class _MyRequestTFormState extends State<MyRequestTForm> {
                       if (value == null || value.isEmpty) {
                         return 'Please enter a valid email';
                       }
-                      return null;
+                      if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                          .hasMatch(value)) {
+                        return 'Please enter a valid email';
+                      }
                     },
                     decoration: InputDecoration(
                       // filled: true,
@@ -355,7 +393,7 @@ class _MyRequestTFormState extends State<MyRequestTForm> {
                       //       width: 1, color: Color.fromARGB(255, 241, 245, 237)),
                       //   borderRadius: BorderRadius.circular(60),
                       //),
-                      hintText: 'DOB',
+                      hintText: 'DOB (dd/mm/yyyy)',
                       icon: Padding(
                         padding: const EdgeInsets.only(left: 0),
                         child: Container(
@@ -396,7 +434,9 @@ class _MyRequestTFormState extends State<MyRequestTForm> {
                       if (value == null || value.isEmpty) {
                         return 'Please enter contact number';
                       }
-                      return null;
+                      if (value.length != 10) {
+                        return 'Enter a valid phone number';
+                      }
                     },
                     decoration: InputDecoration(
                       // filled: true,
@@ -447,12 +487,12 @@ class _MyRequestTFormState extends State<MyRequestTForm> {
                     border: Border.all(width: 2, color: Colors.white),
                   ),
                   child: TextFormField(
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please attach your clear photo';
-                      }
-                      return null;
-                    },
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please attach your clear photo';
+                    //   }
+                    //   return null;
+                    // },
                     decoration: InputDecoration(
                       // filled: true,
                       // fillColor: const Color.fromARGB(255, 119, 158, 119)
@@ -460,12 +500,18 @@ class _MyRequestTFormState extends State<MyRequestTForm> {
                       contentPadding:
                           const EdgeInsets.only(top: 13, bottom: 13),
                       border: InputBorder.none,
+                      suffixIcon: IconButton(
+                        icon: const Icon(
+                          Icons.add_a_photo_outlined,
+                        ),
+                        onPressed: () => pickImage(),
+                      ),
                       // enabledBorder: OutlineInputBorder(
                       //   borderSide: const BorderSide(
                       //       width: 1, color: Color.fromARGB(255, 241, 245, 237)),
                       //   borderRadius: BorderRadius.circular(60),
                       //),
-                      hintText: 'Profile Photo',
+                      hintText: 'Insert profile Photo',
                       icon: Padding(
                         padding: const EdgeInsets.only(left: 0),
                         child: Container(
@@ -571,7 +617,9 @@ class _MyRequestTFormState extends State<MyRequestTForm> {
                       if (value == null || value.isEmpty) {
                         return 'Please re enter password';
                       }
-                      return null;
+                      if (_password.text != _confirmpassword.text) {
+                        return 'Password do not match';
+                      }
                     },
                     decoration: InputDecoration(
                       // filled: true,
@@ -659,8 +707,10 @@ class _MyRequestTFormState extends State<MyRequestTForm> {
                       onPressed: () {
                         // Validate returns true if the form is valid, or false otherwise.
                         if (_formKey.currentState!.validate()) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Processing Data')),
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => const LoginPage(),
+                            ),
                           );
                         }
                       },

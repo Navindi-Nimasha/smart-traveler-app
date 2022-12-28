@@ -25,7 +25,7 @@ class LoginPage extends StatelessWidget {
             children: <Widget>[
               Container(
                 alignment: Alignment.center,
-                height: 250,
+                height: 300,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(60),
@@ -43,6 +43,19 @@ class LoginPage extends StatelessWidget {
                     //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      Container(
+                        alignment: Alignment.bottomLeft,
+                        padding: const EdgeInsets.only(top: 5, left: 10),
+                        child: IconButton(
+                          icon: const Icon(
+                            Icons.arrow_back,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ),
                       Container(
                         margin: const EdgeInsets.symmetric(vertical: 25),
                         height: 100,

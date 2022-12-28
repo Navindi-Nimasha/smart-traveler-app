@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
+import '../../screens/loginpage.dart';
+
 class RegisterGPage extends StatelessWidget {
   const RegisterGPage({super.key});
 
@@ -151,6 +153,9 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
   // show the password or not
   bool _isObscure = true;
 
+  final TextEditingController _password = TextEditingController();
+  final TextEditingController _confirmpassword = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var textStyle = const TextStyle(fontSize: 18, color: Colors.white);
@@ -231,7 +236,10 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                       if (value == null || value.isEmpty) {
                         return 'Please enter a valid email';
                       }
-                      return null;
+                      if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                          .hasMatch(value)) {
+                        return 'Please enter a valid email';
+                      }
                     },
                     decoration: InputDecoration(
                       // filled: true,
@@ -355,7 +363,7 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                       //       width: 1, color: Color.fromARGB(255, 241, 245, 237)),
                       //   borderRadius: BorderRadius.circular(60),
                       //),
-                      hintText: 'DOB',
+                      hintText: 'DOB (dd/mm/yyyy)',
                       icon: Padding(
                         padding: const EdgeInsets.only(left: 0),
                         child: Container(
@@ -396,7 +404,9 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                       if (value == null || value.isEmpty) {
                         return 'Please enter contact number';
                       }
-                      return null;
+                      if (value.length != 10) {
+                        return 'Enter a valid phone number';
+                      }
                     },
                     decoration: InputDecoration(
                       // filled: true,
@@ -460,6 +470,13 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                       contentPadding:
                           const EdgeInsets.only(top: 13, bottom: 13),
                       border: InputBorder.none,
+                      suffixIcon: const Align(
+                        widthFactor: 1.0,
+                        heightFactor: 1.0,
+                        child: Icon(
+                          Icons.add_a_photo_outlined,
+                        ),
+                      ),
                       // enabledBorder: OutlineInputBorder(
                       //   borderSide: const BorderSide(
                       //       width: 1, color: Color.fromARGB(255, 241, 245, 237)),
@@ -515,6 +532,11 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                       contentPadding:
                           const EdgeInsets.only(top: 13, bottom: 13),
                       border: InputBorder.none,
+                      suffixIcon: const Align(
+                        widthFactor: 1.0,
+                        heightFactor: 1.0,
+                        child: Icon(Icons.add),
+                      ),
                       // enabledBorder: OutlineInputBorder(
                       //   borderSide: const BorderSide(
                       //       width: 1, color: Color.fromARGB(255, 241, 245, 237)),
@@ -681,7 +703,9 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                       if (value == null || value.isEmpty) {
                         return 'Please re enter password';
                       }
-                      return null;
+                      if (_password.text != _confirmpassword.text) {
+                        return 'Password do not match';
+                      }
                     },
                     decoration: InputDecoration(
                       // filled: true,
@@ -769,8 +793,10 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                       onPressed: () {
                         // Validate returns true if the form is valid, or false otherwise.
                         if (_formKey.currentState!.validate()) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Processing Data')),
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => const LoginPage(),
+                            ),
                           );
                         }
                       },
