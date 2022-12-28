@@ -59,7 +59,7 @@ class _SListPageState extends State<SListPage> {
             children: <Widget>[
               Container(
                 alignment: Alignment.center,
-                height: 130,
+                height: 140,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(50),
@@ -73,9 +73,14 @@ class _SListPageState extends State<SListPage> {
                       Container(
                         alignment: Alignment.bottomLeft,
                         padding: const EdgeInsets.only(top: 5, left: 10),
-                        child: const Icon(
-                          Icons.arrow_back,
-                          color: Color.fromARGB(255, 12, 12, 12),
+                        child: IconButton(
+                          icon: const Icon(
+                            Icons.arrow_back,
+                            color: Color.fromARGB(255, 12, 12, 12),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
                         ),
                       ),
                       Container(
@@ -89,6 +94,7 @@ class _SListPageState extends State<SListPage> {
                             hintText: 'Search here',
                             prefixIcon: Icon(Icons.search, color: Colors.black),
                             suffixIcon: Icon(Icons.mic, color: Colors.black),
+                            border: InputBorder.none,
                           ),
                         ),
                       ),

@@ -51,7 +51,7 @@ class _LListPageState extends State<LListPage> {
             image: AssetImage('assets/images/locations/listl.jpg'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-                Color.fromARGB(210, 1, 61, 19), BlendMode.softLight),
+                Color.fromARGB(210, 15, 78, 3), BlendMode.darken),
           ),
         ),
         child: Scaffold(
@@ -74,9 +74,14 @@ class _LListPageState extends State<LListPage> {
                       Container(
                         alignment: Alignment.bottomLeft,
                         padding: const EdgeInsets.only(top: 5, left: 10),
-                        child: const Icon(
-                          Icons.arrow_back,
-                          color: Color.fromARGB(255, 12, 12, 12),
+                        child: IconButton(
+                          icon: const Icon(
+                            Icons.arrow_back,
+                            color: Color.fromARGB(255, 12, 12, 12),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
                         ),
                       ),
                       Container(
@@ -90,6 +95,7 @@ class _LListPageState extends State<LListPage> {
                             hintText: 'Search here',
                             prefixIcon: Icon(Icons.search, color: Colors.black),
                             suffixIcon: Icon(Icons.mic, color: Colors.black),
+                            border: InputBorder.none,
                           ),
                         ),
                       ),
@@ -231,11 +237,11 @@ class _LListPageState extends State<LListPage> {
                 iconSize: 35,
                 text: 'Home',
               ),
-              GButton(
-                icon: Icons.place_outlined,
-                iconSize: 35,
-                text: 'Location',
-              ),
+              // GButton(
+              //   icon: Icons.place_outlined,
+              //   iconSize: 35,
+              //   text: 'Location',
+              // ),
               // GButton(
               //   icon: Icons.favorite_border_outlined,
               //   text: 'Likes',

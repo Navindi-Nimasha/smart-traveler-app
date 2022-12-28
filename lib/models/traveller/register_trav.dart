@@ -44,9 +44,14 @@ class RegisterTPage extends StatelessWidget {
                       Container(
                         alignment: Alignment.bottomLeft,
                         padding: const EdgeInsets.only(top: 5, left: 10),
-                        child: const Icon(
-                          Icons.arrow_back,
-                          color: Colors.white,
+                        child: IconButton(
+                          icon: const Icon(
+                            Icons.arrow_back,
+                            color: Color.fromARGB(255, 12, 12, 12),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
                         ),
                       ),
                       Container(

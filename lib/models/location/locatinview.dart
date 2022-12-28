@@ -53,15 +53,15 @@ class LocationViewPage extends StatelessWidget {
               iconSize: 35,
               text: 'Home',
             ),
-            GButton(
-              icon: Icons.place_outlined,
-              iconSize: 35,
-              text: 'Location',
-            ),
             // GButton(
-            //   icon: Icons.favorite_border_outlined,
-            //   text: 'Likes',
+            //   icon: Icons.place_outlined,
+            //   iconSize: 35,
+            //   text: 'Location',
             // ),
+            GButton(
+              icon: Icons.favorite_border_outlined,
+              text: 'Likes',
+            ),
             GButton(
               icon: Icons.settings_outlined,
               iconSize: 35,
