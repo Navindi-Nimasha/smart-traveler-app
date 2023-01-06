@@ -210,7 +210,9 @@ class _MyRequestTFormState extends State<MyRequestTForm> {
                       if (value == null || value.isEmpty) {
                         return 'Please enter fullname';
                       }
-                      return null;
+                      if (value.length < 2) {
+                        return 'Please enter a valid name';
+                      }
                     },
                     decoration: InputDecoration(
                       // filled: true,
@@ -617,9 +619,10 @@ class _MyRequestTFormState extends State<MyRequestTForm> {
                       if (value == null || value.isEmpty) {
                         return 'Please re enter password';
                       }
-                      if (_password.text != _confirmpassword.text) {
+                      if (_password.value != _confirmpassword.value) {
                         return 'Password do not match';
                       }
+                      return null;
                     },
                     decoration: InputDecoration(
                       // filled: true,

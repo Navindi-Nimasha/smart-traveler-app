@@ -180,7 +180,9 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                       if (value == null || value.isEmpty) {
                         return 'Please enter fullname';
                       }
-                      return null;
+                      if (value.length < 2) {
+                        return 'Please enter a valid name';
+                      }
                     },
                     decoration: InputDecoration(
                       // filled: true,

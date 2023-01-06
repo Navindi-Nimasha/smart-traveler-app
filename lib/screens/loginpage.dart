@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 import '../models/guider/register_g.dart';
+import 'home.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -169,9 +170,12 @@ class _MyLoginFormState extends State<MyLoginForm> {
                 child: TextFormField(
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter username';
+                      return 'Please enter a valid email';
                     }
-                    return null;
+                    if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                        .hasMatch(value)) {
+                      return 'Please enter a valid email';
+                    }
                   },
                   decoration: InputDecoration(
                     // filled: true,
@@ -184,7 +188,7 @@ class _MyLoginFormState extends State<MyLoginForm> {
                     //       width: 1, color: Color.fromARGB(255, 241, 245, 237)),
                     //   borderRadius: BorderRadius.circular(60),
                     //),
-                    hintText: 'Username',
+                    hintText: 'E-mail',
                     icon: Padding(
                       padding: const EdgeInsets.only(left: 0),
                       child: Container(
@@ -320,8 +324,10 @@ class _MyLoginFormState extends State<MyLoginForm> {
                     onPressed: () {
                       // Validate returns true if the form is valid, or false otherwise.
                       if (_formKey.currentState!.validate()) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Processing Data')),
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => const HomePage(),
+                          ),
                         );
                       }
                     },

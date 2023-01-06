@@ -263,61 +263,61 @@ class _TripPlanFormState extends State<TripPlanForm> {
               const SizedBox(
                 height: 30,
               ),
-              Container(
-                width: 300,
-                decoration: BoxDecoration(
-                  color:
-                      const Color.fromARGB(255, 119, 158, 119).withOpacity(0.9),
-                  borderRadius: const BorderRadius.all(Radius.circular(60)),
-                  border: Border.all(width: 2, color: Colors.white),
-                ),
-                child: TextFormField(
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter category';
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                    // filled: true,
-                    // fillColor: const Color.fromARGB(255, 119, 158, 119)
-                    //     .withOpacity(0.9),
-                    contentPadding: const EdgeInsets.only(top: 13, bottom: 13),
-                    border: InputBorder.none,
-                    // enabledBorder: OutlineInputBorder(
-                    //   borderSide: const BorderSide(
-                    //       width: 1, color: Color.fromARGB(255, 241, 245, 237)),
-                    //   borderRadius: BorderRadius.circular(60),
-                    //),
-                    hintText: 'Category',
-                    icon: Padding(
-                      padding: const EdgeInsets.only(left: 0),
-                      child: Container(
-                        padding: const EdgeInsets.all(8),
-                        margin: const EdgeInsets.only(right: 0),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
-                          border: Border.all(color: Colors.white),
-                        ),
-                        child: const Icon(
-                          Icons.category_outlined,
-                          color: Color.fromARGB(255, 1, 71, 38),
-                          size: 40,
-                        ),
-                      ),
-                    ),
-                    hintStyle:
-                        const TextStyle(fontSize: 18, color: Colors.white),
-                  ),
-                  style: const TextStyle(fontSize: 18, color: Colors.white),
-                  keyboardType: TextInputType.emailAddress,
-                  textInputAction: TextInputAction.next,
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
+              // Container(
+              //   width: 300,
+              //   decoration: BoxDecoration(
+              //     color:
+              //         const Color.fromARGB(255, 119, 158, 119).withOpacity(0.9),
+              //     borderRadius: const BorderRadius.all(Radius.circular(60)),
+              //     border: Border.all(width: 2, color: Colors.white),
+              //   ),
+              //   child: TextFormField(
+              //     validator: (value) {
+              //       if (value == null || value.isEmpty) {
+              //         return 'Please enter category';
+              //       }
+              //       return null;
+              //     },
+              //     decoration: InputDecoration(
+              //       // filled: true,
+              //       // fillColor: const Color.fromARGB(255, 119, 158, 119)
+              //       //     .withOpacity(0.9),
+              //       contentPadding: const EdgeInsets.only(top: 13, bottom: 13),
+              //       border: InputBorder.none,
+              //       // enabledBorder: OutlineInputBorder(
+              //       //   borderSide: const BorderSide(
+              //       //       width: 1, color: Color.fromARGB(255, 241, 245, 237)),
+              //       //   borderRadius: BorderRadius.circular(60),
+              //       //),
+              //       hintText: 'Category',
+              //       icon: Padding(
+              //         padding: const EdgeInsets.only(left: 0),
+              //         child: Container(
+              //           padding: const EdgeInsets.all(8),
+              //           margin: const EdgeInsets.only(right: 0),
+              //           decoration: BoxDecoration(
+              //             color: Colors.white,
+              //             shape: BoxShape.circle,
+              //             border: Border.all(color: Colors.white),
+              //           ),
+              //           child: const Icon(
+              //             Icons.category_outlined,
+              //             color: Color.fromARGB(255, 1, 71, 38),
+              //             size: 40,
+              //           ),
+              //         ),
+              //       ),
+              //       hintStyle:
+              //           const TextStyle(fontSize: 18, color: Colors.white),
+              //     ),
+              //     style: const TextStyle(fontSize: 18, color: Colors.white),
+              //     keyboardType: TextInputType.emailAddress,
+              //     textInputAction: TextInputAction.next,
+              //   ),
+              // ),
+              // const SizedBox(
+              //   height: 30,
+              //),
               Container(
                 width: 300,
                 decoration: BoxDecoration(

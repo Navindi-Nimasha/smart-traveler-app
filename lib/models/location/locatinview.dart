@@ -1,7 +1,9 @@
+// ignore_for_file: import_of_legacy_library_into_null_safe
+
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-
 import 'location.dart';
+import 'package:carousel_pro/carousel_pro.dart' show Carousel;
 
 class LocationViewPage extends StatelessWidget {
   final Location location;
@@ -45,7 +47,9 @@ class LocationViewPage extends StatelessWidget {
               )
             ],
           ),
-          body: BodyL(location: location),
+          body: BodyL(
+            location: location,
+          ),
           bottomNavigationBar: const GNav(
             backgroundColor: Color.fromARGB(179, 18, 66, 33),
             color: Colors.white,
@@ -94,8 +98,112 @@ class BodyL extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(),
+    Widget image_carousel = ClipRRect(
+      borderRadius: BorderRadius.circular(30.0),
+      // ignore: sized_box_for_whitespace
+      child: Container(
+        height: 200.0,
+        width: 10.0,
+        child: Carousel(
+          boxFit: BoxFit.cover,
+          images: [
+            AssetImage(location.image1),
+            AssetImage(location.image2),
+            AssetImage(location.image3),
+            AssetImage(location.image4),
+            AssetImage(location.image5),
+          ], // we use square brackets when we want to add a list
+          autoplay: false,
+          animationCurve: Curves.fastOutSlowIn,
+          animationDuration: const Duration(milliseconds: 1000),
+        ),
+      ),
+    );
+
+    return ListView(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      children: <Widget>[
+        Center(
+          child: Text(
+            location.name,
+            style: const TextStyle(
+              fontSize: 30,
+              color: Colors.white,
+            ),
+          ),
+        ),
+        const SizedBox(height: 10),
+        image_carousel,
+        const SizedBox(height: 20),
+        Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Column(
+                children: [
+                  IconButton(
+                    onPressed: (() {}),
+                    icon: const Icon(Icons.directions),
+                    color: Colors.white,
+                  ),
+                  const Text(
+                    "Directions",
+                    style: TextStyle(color: Colors.white),
+                  )
+                ],
+              ),
+              Column(
+                children: [
+                  IconButton(
+                    onPressed: (() {}),
+                    icon: const Icon(Icons.save),
+                    color: Colors.white,
+                  ),
+                  const Text(
+                    "Save",
+                    style: TextStyle(color: Colors.white),
+                  )
+                ],
+              ),
+              Column(
+                children: [
+                  IconButton(
+                    onPressed: (() {}),
+                    icon: const Icon(Icons.share),
+                    color: Colors.white,
+                  ),
+                  const Text(
+                    "Share",
+                    style: TextStyle(color: Colors.white),
+                  )
+                ],
+              ),
+              Column(
+                children: [
+                  IconButton(
+                    onPressed: (() {}),
+                    icon: const Icon(Icons.download_sharp),
+                    color: Colors.white,
+                  ),
+                  const Text(
+                    "Download",
+                    style: TextStyle(color: Colors.white),
+                  )
+                ],
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 20),
+        const Divider(
+          color: Colors.white,
+          thickness: 1,
+        ),
+        const Text(
+          "Mihintale is a mountain peak near Anuradhapura in Sri Lanka. It is believed by Sri Lankans to be the site of a meeting between the Buddhist monk Mahinda and King Devanampiyatissa which inaugurated the presence of Buddhism in Sri Lanka. It is now a pilgrimage site, and the site of several religious monuments and abandoned structures. ",
+          style: TextStyle(color: Colors.white),
+        ),
+      ],
     );
   }
 }
