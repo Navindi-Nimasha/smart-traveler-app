@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'models/shop/register_shop.dart';
-import 'screens/homepage.dart';
-=======
-import 'package:flutter_application_1/screens/home.dart';
+
+import 'package:flutter_application_1/screens/homepage.dart';
 import 'package:flutter_application_1/screens/loginpage.dart';
 
 import 'models/location/locationlist.dart';
->>>>>>> 8706d55929f6247a8896a476ccc845f1e9ba8270
 
 //import 'screens/home.dart';
 
@@ -29,11 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-<<<<<<< HEAD
-      home: const RegisterSPage(),
-=======
       home: const HomePage(),
->>>>>>> 8706d55929f6247a8896a476ccc845f1e9ba8270
     );
   }
 }
