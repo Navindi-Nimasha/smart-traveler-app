@@ -104,23 +104,6 @@ class BodyL extends StatelessWidget {
       child: Container(
         height: 200.0,
         width: 10.0,
-<<<<<<< HEAD
-        child: Carousel(
-          boxFit: BoxFit.cover,
-          images: [
-            AssetImage(location.image1),
-            AssetImage(location.image2),
-            AssetImage(location.image3),
-            AssetImage(location.image4),
-            AssetImage(location.image5),
-          ], // we use square brackets when we want to add a list
-          autoplay: false,
-          animationCurve: Curves.fastOutSlowIn,
-          animationDuration: const Duration(milliseconds: 1000),
-          dotColor: Colors.grey,
-          dotSize: 4.0,
-        ),
-=======
         // child: Carousel(
         //   boxFit: BoxFit.cover,
         //   images: [
@@ -133,8 +116,9 @@ class BodyL extends StatelessWidget {
         //   autoplay: false,
         //   animationCurve: Curves.fastOutSlowIn,
         //   animationDuration: const Duration(milliseconds: 1000),
+        //   dotColor: Colors.grey,
+        //   dotSize: 4.0,
         // ),
->>>>>>> 8706d55929f6247a8896a476ccc845f1e9ba8270
       ),
     );
 
