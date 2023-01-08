@@ -16,7 +16,7 @@ class RegisterGPage extends StatelessWidget {
             image: AssetImage('assets/images/bgimagereg.jpg'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-                Color.fromARGB(186, 42, 48, 40), BlendMode.darken),
+                Color.fromARGB(62, 126, 126, 126), BlendMode.darken),
           ),
         ),
         child: Scaffold(
@@ -30,13 +30,13 @@ class RegisterGPage extends StatelessWidget {
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(60),
                       bottomRight: Radius.circular(60)),
-                  color: Color.fromARGB(225, 7, 7, 7),
-                  gradient: RadialGradient(colors: [
-                    Color.fromARGB(113, 56, 54, 54),
-                    Color.fromARGB(221, 128, 121, 121),
-                    Color.fromARGB(255, 81, 76, 76),
-                    Color.fromARGB(239, 8, 8, 8)
-                  ], center: Alignment(0.0, -1.6), focalRadius: 6.0),
+                  color: Color.fromARGB(180, 67, 66, 66),
+                  // gradient: RadialGradient(colors: [
+                  //   Color.fromARGB(113, 56, 54, 54),
+                  //   Color.fromARGB(221, 128, 121, 121),
+                  //   Color.fromARGB(255, 81, 76, 76),
+                  //   Color.fromARGB(239, 8, 8, 8)
+                  // ], center: Alignment(0.0, -1.6), focalRadius: 6.0),
                 ),
                 child: Center(
                   child: Column(
@@ -68,10 +68,10 @@ class RegisterGPage extends StatelessWidget {
                         child: const Text(
                           'Welcome !',
                           style: TextStyle(
-                            //fontWeight: FontWeight.bold,
-                            fontSize: 23.0,
-                            color: Colors.white,
-                          ),
+                              //fontWeight: FontWeight.bold,
+                              fontSize: 25.0,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
                       // ignore: avoid_unnecessary_containers
@@ -81,7 +81,7 @@ class RegisterGPage extends StatelessWidget {
                           'Create your account',
                           style: TextStyle(
                             //fontWeight: FontWeight.bold,
-                            fontSize: 15.0,
+                            fontSize: 17.0,
                             color: Colors.white,
                             //height: 0.00001,
                           ),
@@ -171,7 +171,7 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                   width: 300,
                   decoration: BoxDecoration(
                     color:
-                        const Color.fromARGB(255, 56, 78, 56).withOpacity(0.9),
+                        const Color.fromARGB(255, 76, 95, 76).withOpacity(0.9),
                     borderRadius: const BorderRadius.all(Radius.circular(60)),
                     border: Border.all(width: 2, color: Colors.white),
                   ),
@@ -209,7 +209,7 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                           ),
                           child: const Icon(
                             Icons.person_outline_rounded,
-                            color: Color.fromARGB(255, 1, 71, 38),
+                            color: Color.fromARGB(255, 76, 95, 76),
                             size: 40,
                           ),
                         ),
@@ -229,7 +229,7 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                   width: 300,
                   decoration: BoxDecoration(
                     color:
-                        const Color.fromARGB(255, 56, 78, 56).withOpacity(0.9),
+                        const Color.fromARGB(255, 76, 95, 76).withOpacity(0.9),
                     borderRadius: const BorderRadius.all(Radius.circular(60)),
                     border: Border.all(width: 2, color: Colors.white),
                   ),
@@ -268,7 +268,7 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                           ),
                           child: const Icon(
                             Icons.email_outlined,
-                            color: Color.fromARGB(255, 1, 71, 38),
+                            color: Color.fromARGB(255, 76, 95, 76),
                             size: 40,
                           ),
                         ),
@@ -287,7 +287,7 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                   width: 300,
                   decoration: BoxDecoration(
                     color:
-                        const Color.fromARGB(255, 56, 78, 56).withOpacity(0.9),
+                        const Color.fromARGB(255, 76, 95, 76).withOpacity(0.9),
                     borderRadius: const BorderRadius.all(Radius.circular(60)),
                     border: Border.all(width: 2, color: Colors.white),
                   ),
@@ -323,7 +323,7 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                           ),
                           child: const Icon(
                             Icons.add_card_outlined,
-                            color: Color.fromARGB(255, 1, 71, 38),
+                            color: Color.fromARGB(255, 76, 95, 76),
                             size: 40,
                           ),
                         ),
@@ -342,7 +342,7 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                   width: 300,
                   decoration: BoxDecoration(
                     color:
-                        const Color.fromARGB(255, 56, 78, 56).withOpacity(0.9),
+                        const Color.fromARGB(255, 76, 95, 76).withOpacity(0.9),
                     borderRadius: const BorderRadius.all(Radius.circular(60)),
                     border: Border.all(width: 2, color: Colors.white),
                   ),
@@ -378,7 +378,7 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                           ),
                           child: const Icon(
                             Icons.cake_outlined,
-                            color: Color.fromARGB(255, 1, 71, 38),
+                            color: Color.fromARGB(255, 76, 95, 76),
                             size: 40,
                           ),
                         ),
@@ -397,7 +397,7 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                   width: 300,
                   decoration: BoxDecoration(
                     color:
-                        const Color.fromARGB(255, 56, 78, 56).withOpacity(0.9),
+                        const Color.fromARGB(255, 76, 95, 76).withOpacity(0.9),
                     borderRadius: const BorderRadius.all(Radius.circular(60)),
                     border: Border.all(width: 2, color: Colors.white),
                   ),
@@ -435,7 +435,7 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                           ),
                           child: const Icon(
                             Icons.contact_phone_outlined,
-                            color: Color.fromARGB(255, 1, 71, 38),
+                            color: Color.fromARGB(255, 76, 95, 76),
                             size: 40,
                           ),
                         ),
@@ -454,7 +454,7 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                   width: 300,
                   decoration: BoxDecoration(
                     color:
-                        const Color.fromARGB(255, 56, 78, 56).withOpacity(0.9),
+                        const Color.fromARGB(255, 76, 95, 76).withOpacity(0.9),
                     borderRadius: const BorderRadius.all(Radius.circular(60)),
                     border: Border.all(width: 2, color: Colors.white),
                   ),
@@ -497,7 +497,7 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                           ),
                           child: const Icon(
                             Icons.image_outlined,
-                            color: Color.fromARGB(255, 1, 71, 38),
+                            color: Color.fromARGB(255, 76, 95, 76),
                             size: 40,
                           ),
                         ),
@@ -516,7 +516,7 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                   width: 300,
                   decoration: BoxDecoration(
                     color:
-                        const Color.fromARGB(255, 56, 78, 56).withOpacity(0.9),
+                        const Color.fromARGB(255, 76, 95, 76).withOpacity(0.9),
                     borderRadius: const BorderRadius.all(Radius.circular(60)),
                     border: Border.all(width: 2, color: Colors.white),
                   ),
@@ -557,7 +557,7 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                           ),
                           child: const Icon(
                             Icons.attach_file_outlined,
-                            color: Color.fromARGB(255, 1, 71, 38),
+                            color: Color.fromARGB(255, 76, 95, 76),
                             size: 40,
                           ),
                         ),
@@ -576,7 +576,7 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                   width: 300,
                   decoration: BoxDecoration(
                     color:
-                        const Color.fromARGB(255, 56, 78, 56).withOpacity(0.9),
+                        const Color.fromARGB(255, 76, 95, 76).withOpacity(0.9),
                     borderRadius: const BorderRadius.all(Radius.circular(60)),
                     border: Border.all(width: 2, color: Colors.white),
                   ),
@@ -612,7 +612,7 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                           ),
                           child: const Icon(
                             Icons.map_outlined,
-                            color: Color.fromARGB(255, 1, 71, 38),
+                            color: Color.fromARGB(255, 76, 95, 76),
                             size: 40,
                           ),
                         ),
@@ -631,7 +631,7 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                   width: 300,
                   decoration: BoxDecoration(
                     color:
-                        const Color.fromARGB(255, 56, 78, 56).withOpacity(0.9),
+                        const Color.fromARGB(255, 76, 95, 76).withOpacity(0.9),
                     borderRadius: const BorderRadius.all(Radius.circular(60)),
                     border: Border.all(width: 2, color: Colors.white),
                   ),
@@ -668,7 +668,7 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                           ),
                           child: const Icon(
                             Icons.lock_outline,
-                            color: Color.fromARGB(255, 1, 71, 38),
+                            color: Color.fromARGB(255, 76, 95, 76),
                             size: 40,
                           ),
                         ),
@@ -695,7 +695,7 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                   width: 300,
                   decoration: BoxDecoration(
                     color:
-                        const Color.fromARGB(255, 56, 78, 56).withOpacity(0.9),
+                        const Color.fromARGB(255, 76, 95, 76).withOpacity(0.9),
                     borderRadius: const BorderRadius.all(Radius.circular(60)),
                     border: Border.all(width: 2, color: Colors.white),
                   ),
@@ -734,7 +734,7 @@ class _MyRequestGFormState extends State<MyRequestGForm> {
                           ),
                           child: const Icon(
                             Icons.lock_outline,
-                            color: Color.fromARGB(255, 1, 71, 38),
+                            color: Color.fromARGB(255, 76, 95, 76),
                             size: 40,
                           ),
                         ),

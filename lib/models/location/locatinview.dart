@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'location.dart';
-import 'package:carousel_pro/carousel_pro.dart' show Carousel;
+// import 'package:carousel_pro/carousel_pro.dart' show Carousel;
 
 class LocationViewPage extends StatelessWidget {
   final Location location;
@@ -23,7 +23,7 @@ class LocationViewPage extends StatelessWidget {
             image: AssetImage('assets/images/locations/bg.jpg'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-                Color.fromARGB(255, 1, 27, 9), BlendMode.hardLight),
+                Color.fromARGB(255, 1, 27, 9), BlendMode.clear),
           ),
         ),
         child: Scaffold(
@@ -104,19 +104,19 @@ class BodyL extends StatelessWidget {
       child: Container(
         height: 200.0,
         width: 10.0,
-        child: Carousel(
-          boxFit: BoxFit.cover,
-          images: [
-            AssetImage(location.image1),
-            AssetImage(location.image2),
-            AssetImage(location.image3),
-            AssetImage(location.image4),
-            AssetImage(location.image5),
-          ], // we use square brackets when we want to add a list
-          autoplay: false,
-          animationCurve: Curves.fastOutSlowIn,
-          animationDuration: const Duration(milliseconds: 1000),
-        ),
+        // child: Carousel(
+        //   boxFit: BoxFit.cover,
+        //   images: [
+        //     AssetImage(location.image1),
+        //     AssetImage(location.image2),
+        //     AssetImage(location.image3),
+        //     AssetImage(location.image4),
+        //     AssetImage(location.image5),
+        //   ], // we use square brackets when we want to add a list
+        //   autoplay: false,
+        //   animationCurve: Curves.fastOutSlowIn,
+        //   animationDuration: const Duration(milliseconds: 1000),
+        // ),
       ),
     );
 

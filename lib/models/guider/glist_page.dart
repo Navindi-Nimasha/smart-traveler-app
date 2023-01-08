@@ -50,7 +50,7 @@ class _GListPageState extends State<GListPage> {
             image: AssetImage('assets/images/gbackground.jpg'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-                Color.fromARGB(220, 8, 80, 1), BlendMode.difference),
+                Color.fromARGB(62, 126, 126, 126), BlendMode.darken),
           ),
         ),
         child: Scaffold(
@@ -59,7 +59,7 @@ class _GListPageState extends State<GListPage> {
             children: <Widget>[
               Container(
                 alignment: Alignment.center,
-                height: 140,
+                height: 170,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(50),
