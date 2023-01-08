@@ -51,21 +51,21 @@ class _LListPageState extends State<LListPage> {
             image: AssetImage('assets/images/locations/listl.jpg'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-                Color.fromARGB(210, 15, 78, 3), BlendMode.darken),
+                Color.fromARGB(210, 15, 78, 3), BlendMode.difference),
           ),
         ),
         child: Scaffold(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Color.fromARGB(117, 0, 0, 0),
           body: Column(
             children: <Widget>[
               Container(
                 alignment: Alignment.center,
-                height: 140,
+                height: 160,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(50),
                       bottomRight: Radius.circular(50)),
-                  color: Color.fromARGB(131, 231, 226, 226),
+                  color: Color.fromARGB(131, 145, 143, 143),
                 ),
                 child: Center(
                   child: Column(
@@ -93,6 +93,9 @@ class _LListPageState extends State<LListPage> {
                         child: const TextField(
                           decoration: InputDecoration(
                             hintText: 'Search here',
+                            hintStyle: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
                             prefixIcon: Icon(Icons.search, color: Colors.black),
                             suffixIcon: Icon(Icons.mic, color: Colors.black),
                             border: InputBorder.none,
@@ -130,7 +133,7 @@ class _LListPageState extends State<LListPage> {
                                       style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.grey,
+                                        color: Color.fromARGB(255, 71, 71, 71),
                                       ),
                                       overflow: TextOverflow.ellipsis,
                                     ),

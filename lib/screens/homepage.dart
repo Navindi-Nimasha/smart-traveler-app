@@ -310,11 +310,30 @@ class _HomePageState extends State<HomePage> {
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold),
                                 ),
+<<<<<<< HEAD:lib/screens/homepage.dart
                               ),
                             ],
                           ),
                         ],
+=======
+                                Padding(
+                                  padding: EdgeInsets.only(left: 30),
+                                  child: Text(
+                                    'Find Travel Gears',
+                                    style: TextStyle(
+                                        fontSize: 22,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        
+>>>>>>> 8706d55929f6247a8896a476ccc845f1e9ba8270:lib/screens/home.dart
                       ),
+                      
                     ),
                   ],
                 ),
