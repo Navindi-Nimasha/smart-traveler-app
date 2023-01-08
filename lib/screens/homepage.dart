@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-
-import '../models/guider/glist_page.dart';
-import '../models/shop/shoplist_page.dart';
-import '../models/trip_plan/plan_input.dart';
-//import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
+import 'sidebar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,7 +14,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const GNav(
+      drawer: SideBar(),
+      bottomNavigationBar: GNav(
         backgroundColor: Color.fromARGB(255, 15, 83, 19),
         color: Colors.white,
         activeColor: Colors.white,
@@ -44,50 +42,87 @@ class _HomePageState extends State<HomePage> {
       ),
       extendBodyBehindAppBar: false,
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 196, 202, 212),
+        backgroundColor: Color.fromARGB(255, 196, 202, 212),
         elevation: 0.0,
-        title: Container(
-          width: double.infinity,
-          height: 35,
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(50)),
-          child: const Center(
-            child: TextField(
-              decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.search),
-                  // suffixIcon: IconButton(
-                  //   icon: const Icon(Icons.clear),
-                  //   onPressed: () {},
-                  // ),
-                  hintText: 'Where to go...',
-                  border: InputBorder.none),
-            ),
+        leading: Builder(
+          builder: (context) => IconButton(
+            onPressed: () => Scaffold.of(context).openDrawer(),
+            icon: Icon(Icons.menu, color: Colors.black),
+            iconSize: 35,
           ),
         ),
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.menu, color: Colors.black),
-          iconSize: 35,
-        ),
         actions: [
-          IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.account_circle_rounded),
-              iconSize: 35,
-              color: Colors.black)
+          Padding(
+            padding: EdgeInsets.only(right: 10.0),
+            child: PopupMenuButton(
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                  child: ListTile(
+                      leading: Icon(Icons.login_outlined, color: Colors.black),
+                      title: Text(
+                        "Log In",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18),
+                      )),
+                ),
+                PopupMenuItem(
+                  child: ListTile(
+                      leading:
+                          Icon(Icons.app_registration, color: Colors.black),
+                      title: Text(
+                        "Register As",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18),
+                      )),
+                ),
+                PopupMenuItem(
+                  child: Text(
+                    "Traveller",
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
+                PopupMenuItem(
+                  child: Text(
+                    "Guider",
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
+                PopupMenuItem(
+                  child: Text(
+                    "Shop",
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
+                PopupMenuItem(
+                  child: ListTile(
+                      leading: Icon(Icons.logout_outlined, color: Colors.black),
+                      title: Text(
+                        "Log Out",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18),
+                      )),
+                ),
+              ],
+              child: Icon(
+                Icons.account_circle_rounded,
+                size: 35,
+                color: Colors.black,
+              ),
+            ),
+          ),
         ],
       ),
       body: Container(
           width: double.infinity,
           height: double.infinity,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/images/homepage/homepage.jpg"),
+                image: AssetImage("assets/images/homepage_new/homepage.jpg"),
                 fit: BoxFit.cover),
           ),
           child: Column(
             children: [
-              const Flexible(
+              Flexible(
                 child: SizedBox(
                   height: 370,
                 ),
@@ -98,20 +133,15 @@ class _HomePageState extends State<HomePage> {
                 decoration: BoxDecoration(
                   color: Colors.green.withOpacity(0.3),
                   border: Border.all(color: Colors.white, width: 1),
-                  borderRadius:
-                      const BorderRadius.vertical(top: Radius.circular(70)),
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(70)),
                 ),
                 child: Column(
                   children: [
-                    const SizedBox(
+                    SizedBox(
                       height: 13,
                     ),
                     InkResponse(
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const TripPlanPage()),
-                      ),
+                      onTap: () {},
                       child: Container(
                         height: 130,
                         width: 360,
@@ -125,17 +155,17 @@ class _HomePageState extends State<HomePage> {
                             ClipRRect(
                               borderRadius: BorderRadius.circular(40),
                               child: Image.asset(
-                                  'assets/images/homepage/Automatic Trip Planning.jpg'),
+                                  'assets/images/homepage_new/Automatic Trip Planning.jpg'),
                             ),
-                            const SizedBox(
+                            SizedBox(
                               width: 5,
                             ),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
+                              children: [
                                 Padding(
-                                  padding: EdgeInsets.only(left: 10),
+                                  padding: const EdgeInsets.only(left: 10),
                                   child: Text(
                                     'GET STARTED',
                                     style: TextStyle(
@@ -149,7 +179,7 @@ class _HomePageState extends State<HomePage> {
                                   height: 10,
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(left: 40),
+                                  padding: const EdgeInsets.only(left: 40),
                                   child: Text(
                                     'Automatic Trip',
                                     style: TextStyle(
@@ -159,7 +189,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(left: 60),
+                                  padding: const EdgeInsets.only(left: 60),
                                   child: Text(
                                     'Planning',
                                     style: TextStyle(
@@ -174,15 +204,11 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 13,
                     ),
                     InkResponse(
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const GListPage()),
-                      ),
+                      onTap: () {},
                       child: Container(
                         height: 130,
                         width: 360,
@@ -197,9 +223,9 @@ class _HomePageState extends State<HomePage> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
+                              children: [
                                 Padding(
-                                  padding: EdgeInsets.only(left: 20),
+                                  padding: const EdgeInsets.only(left: 20),
                                   child: Text(
                                     'GET STARTED',
                                     style: TextStyle(
@@ -213,7 +239,7 @@ class _HomePageState extends State<HomePage> {
                                   height: 10,
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(left: 40),
+                                  padding: const EdgeInsets.only(left: 40),
                                   child: Text(
                                     'Find Your Guider',
                                     style: TextStyle(
@@ -224,77 +250,70 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ],
                             ),
-                            const SizedBox(
+                            SizedBox(
                               width: 5,
                             ),
                             ClipRRect(
                               borderRadius: BorderRadius.circular(40),
                               child: Image.asset(
-                                  'assets/images/homepage/Find Your Guider.jpg'),
+                                  'assets/images/homepage_new/Find Your Guider.jpg'),
                             ),
                           ],
                         ),
                       ),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 13,
                     ),
-                    InkResponse(
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SListPage()),
+                    Container(
+                      height: 130,
+                      width: 360,
+                      decoration: BoxDecoration(
+                        color: Colors.green.withOpacity(0.7),
+                        border: Border.all(color: Colors.white, width: 0.5),
+                        borderRadius: BorderRadius.circular(40),
                       ),
-                      child: Container(
-                        height: 130,
-                        width: 360,
-                        decoration: BoxDecoration(
-                          color: Colors.green.withOpacity(0.7),
-                          border: Border.all(color: Colors.white, width: 0.5),
-                          borderRadius: BorderRadius.circular(40),
-                        ),
-                        child: Row(
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(40),
-                              child: Image.asset(
-                                  'assets/images/homepage/Find Travel Gears.jpg'),
-                            ),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                Padding(
-                                  padding: EdgeInsets.only(left: 10),
-                                  child: Text(
-                                    'GET STARTED',
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.yellow,
-                                        letterSpacing: 2,
-                                        fontWeight: FontWeight.w600),
-                                  ),
+                      child: Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(40),
+                            child: Image.asset(
+                                'assets/images/homepage_new/Find Travel Gears.jpg'),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10),
+                                child: Text(
+                                  'GET STARTED',
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.yellow,
+                                      letterSpacing: 2,
+                                      fontWeight: FontWeight.w600),
                                 ),
-                                SizedBox(
-                                  height: 10,
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 30),
+                                child: Text(
+                                  'Find Travel Gears',
+                                  style: TextStyle(
+                                      fontSize: 22,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 30),
-                                  child: Text(
-                                    'Find Travel Gears',
-                                    style: TextStyle(
-                                        fontSize: 22,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ],

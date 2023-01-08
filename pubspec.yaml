@@ -100,10 +100,11 @@ flutter:
     - assets/images/locations/ranmasu1.jpg
     - assets/images/locations/listl.jpg
     - assets/images/locations/bg.jpg
-    - assets/images/homepage/Automatic Trip Planning.jpg
-    - assets/images/homepage/Find Travel Gears.jpg
-    - assets/images/homepage/Find Your Guider.jpg
-    - assets/images/homepage/homepage.jpg
+    - assets/images/homepage_new/Automatic Trip Planning.jpg
+    - assets/images/homepage_new/bella.jpg
+    - assets/images/homepage_new/Find Travel Gears.jpg
+    - assets/images/homepage_new/Find Your Guider.jpg
+    - assets/images/homepage_new/homepage.jpg
 
 
 

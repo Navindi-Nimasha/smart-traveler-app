@@ -116,6 +116,8 @@ class BodyL extends StatelessWidget {
           autoplay: false,
           animationCurve: Curves.fastOutSlowIn,
           animationDuration: const Duration(milliseconds: 1000),
+          dotColor: Colors.grey,
+          dotSize: 4.0,
         ),
       ),
     );
@@ -182,11 +184,11 @@ class BodyL extends StatelessWidget {
                 children: [
                   IconButton(
                     onPressed: (() {}),
-                    icon: const Icon(Icons.download_sharp),
+                    icon: const Icon(Icons.favorite_border_outlined),
                     color: Colors.white,
                   ),
                   const Text(
-                    "Download",
+                    "Favorite",
                     style: TextStyle(color: Colors.white),
                   )
                 ],

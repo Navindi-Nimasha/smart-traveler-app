@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'models/location/locationlist.dart';
+import 'models/shop/register_shop.dart';
+import 'screens/homepage.dart';
 
 //import 'screens/home.dart';
 
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LListPage(),
+      home: const RegisterSPage(),
     );
   }
 }

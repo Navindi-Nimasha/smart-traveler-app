@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 import '../models/guider/register_g.dart';
-import 'home.dart';
+import 'homepage.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
