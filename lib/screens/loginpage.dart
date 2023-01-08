@@ -1,8 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 import '../models/guider/register_g.dart';
+import 'Registeras.dart';
 import 'homepage.dart';
 
 class LoginPage extends StatelessWidget {
@@ -22,114 +24,116 @@ class LoginPage extends StatelessWidget {
         ),
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          body: Column(
-            children: <Widget>[
-              Container(
-                alignment: Alignment.center,
-                height: 300,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(60),
-                      bottomRight: Radius.circular(60)),
-                  color: Color.fromARGB(180, 67, 66, 66),
-                  // gradient: RadialGradient(colors: [
-                  //   Color.fromARGB(255, 216, 202, 202),
-                  //   Color.fromARGB(221, 150, 133, 133),
-                  //   Color.fromARGB(255, 112, 104, 104),
-                  //   Color.fromARGB(239, 8, 8, 8)
-                  // ], center: Alignment(0.0, -1.6), focalRadius: 6.0),
-                ),
-                child: Center(
-                  child: Column(
-                    //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        alignment: Alignment.bottomLeft,
-                        padding: const EdgeInsets.only(top: 5, left: 10),
-                        child: IconButton(
-                          icon: const Icon(
-                            Icons.arrow_back,
-                            color: Color.fromARGB(255, 255, 255, 255),
+          body: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  alignment: Alignment.center,
+                  height: 280,
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(60),
+                        bottomRight: Radius.circular(60)),
+                    color: Color.fromARGB(180, 67, 66, 66),
+                    // gradient: RadialGradient(colors: [
+                    //   Color.fromARGB(255, 216, 202, 202),
+                    //   Color.fromARGB(221, 150, 133, 133),
+                    //   Color.fromARGB(255, 112, 104, 104),
+                    //   Color.fromARGB(239, 8, 8, 8)
+                    // ], center: Alignment(0.0, -1.6), focalRadius: 6.0),
+                  ),
+                  child: Center(
+                    child: Column(
+                      //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          alignment: Alignment.bottomLeft,
+                          padding: const EdgeInsets.only(top: 5, left: 10),
+                          child: IconButton(
+                            icon: const Icon(
+                              Icons.arrow_back,
+                              color: Color.fromARGB(255, 255, 255, 255),
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
                           ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
                         ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.symmetric(vertical: 25),
-                        height: 100,
-                        width: 350,
-                        child: Image.asset('assets/images/logon.png'),
-                      ),
-                      // ignore: avoid_unnecessary_containers
-                      Container(
-                        margin: const EdgeInsets.only(top: 8),
-                        child: const Text(
-                          'Welcome Back !',
-                          style: TextStyle(
+                        Container(
+                          margin: const EdgeInsets.symmetric(vertical: 25),
+                          height: 80,
+                          width: 350,
+                          child: Image.asset('assets/images/logon.png'),
+                        ),
+                        // ignore: avoid_unnecessary_containers
+                        Container(
+                          margin: const EdgeInsets.only(top: 8),
+                          child: const Text(
+                            'Welcome Back !',
+                            style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                fontSize: 25.0,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        // ignore: avoid_unnecessary_containers
+                        Container(
+                          margin: const EdgeInsets.only(top: 4),
+                          child: const Text(
+                            'Login to your account.',
+                            style: TextStyle(
                               //fontWeight: FontWeight.bold,
-                              fontSize: 25.0,
+                              fontSize: 17.0,
                               color: Colors.white,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      // ignore: avoid_unnecessary_containers
-                      Container(
-                        margin: const EdgeInsets.only(top: 4),
-                        child: const Text(
-                          'Login to your account.',
-                          style: TextStyle(
-                            //fontWeight: FontWeight.bold,
-                            fontSize: 17.0,
-                            color: Colors.white,
-                            //height: 0.00001,
+                              //height: 0.00001,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 50,
-              ),
-              const MyLoginForm(),
-            ],
+                const SizedBox(
+                  height: 50,
+                ),
+                const MyLoginForm(),
+              ],
+            ),
           ),
-          bottomNavigationBar: const GNav(
-            backgroundColor: Color.fromARGB(179, 18, 66, 33),
-            color: Colors.white,
-            activeColor: Colors.white,
-            tabBackgroundColor: Color.fromARGB(164, 12, 39, 14),
-            padding: EdgeInsets.all(13),
-            tabMargin: EdgeInsets.all(10),
-            // onTabChange: (index) {
-            //   print(index);
-            // },
-            tabs: [
-              GButton(
-                icon: Icons.home_outlined,
-                iconSize: 35,
-                text: 'Home',
-              ),
-              GButton(
-                icon: Icons.place_outlined,
-                iconSize: 35,
-                text: 'Location',
-              ),
-              // GButton(
-              //   icon: Icons.favorite_border_outlined,
-              //   text: 'Likes',
-              // ),
-              GButton(
-                icon: Icons.settings_outlined,
-                iconSize: 35,
-                text: 'Settings',
-              ),
-            ],
-          ),
+          // bottomNavigationBar: const GNav(
+          //   backgroundColor: Color.fromARGB(179, 18, 66, 33),
+          //   color: Colors.white,
+          //   activeColor: Colors.white,
+          //   tabBackgroundColor: Color.fromARGB(164, 12, 39, 14),
+          //   padding: EdgeInsets.all(13),
+          //   tabMargin: EdgeInsets.all(10),
+          //   // onTabChange: (index) {
+          //   //   print(index);
+          //   // },
+          //   tabs: [
+          //     GButton(
+          //       icon: Icons.home_outlined,
+          //       iconSize: 35,
+          //       text: 'Home',
+          //     ),
+          //     GButton(
+          //       icon: Icons.place_outlined,
+          //       iconSize: 35,
+          //       text: 'Location',
+          //     ),
+          //     // GButton(
+          //     //   icon: Icons.favorite_border_outlined,
+          //     //   text: 'Likes',
+          //     // ),
+          //     GButton(
+          //       icon: Icons.settings_outlined,
+          //       iconSize: 35,
+          //       text: 'Settings',
+          //     ),
+          //   ],
+          // ),
         ),
       ),
     );
@@ -386,7 +390,12 @@ class _MyLoginFormState extends State<MyLoginForm> {
                               color: Colors.white),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              navigateToRequestGPage(context);
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const RegisterAs()));
+                              // navigateToRequestGPage(context);
                             },
                         ),
                       ],

@@ -19,10 +19,10 @@ class RegisterTPage extends StatelessWidget {
       child: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/bgimagereg.jpg'),
+            image: AssetImage('assets/images/shops/shopreg.jpeg'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-                Color.fromARGB(186, 42, 48, 40), BlendMode.darken),
+                Color.fromARGB(62, 126, 126, 126), BlendMode.color),
           ),
         ),
         child: Scaffold(
@@ -36,13 +36,13 @@ class RegisterTPage extends StatelessWidget {
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(60),
                       bottomRight: Radius.circular(60)),
-                  color: Color.fromARGB(225, 7, 7, 7),
-                  gradient: RadialGradient(colors: [
-                    Color.fromARGB(113, 56, 54, 54),
-                    Color.fromARGB(221, 128, 121, 121),
-                    Color.fromARGB(255, 81, 76, 76),
-                    Color.fromARGB(239, 8, 8, 8)
-                  ], center: Alignment(0.0, -1.6), focalRadius: 6.0),
+                  color: Color.fromARGB(180, 67, 66, 66),
+                  // gradient: RadialGradient(colors: [
+                  //   Color.fromARGB(113, 56, 54, 54),
+                  //   Color.fromARGB(221, 128, 121, 121),
+                  //   Color.fromARGB(255, 81, 76, 76),
+                  //   Color.fromARGB(239, 8, 8, 8)
+                  // ], center: Alignment(0.0, -1.6), focalRadius: 6.0),
                 ),
                 child: Center(
                   child: Column(
@@ -110,36 +110,36 @@ class RegisterTPage extends StatelessWidget {
               ),
             ],
           ),
-          bottomNavigationBar: GNav(
-            backgroundColor: const Color.fromARGB(152, 0, 0, 0),
-            color: Colors.white,
-            activeColor: Colors.white,
-            tabBackgroundColor: const Color.fromARGB(107, 98, 100, 98),
-            padding: const EdgeInsets.all(13),
-            tabMargin: const EdgeInsets.all(10),
-            onTabChange: (index) {},
-            tabs: const [
-              GButton(
-                icon: Icons.home_outlined,
-                iconSize: 35,
-                text: 'Home',
-              ),
-              GButton(
-                icon: Icons.place_outlined,
-                iconSize: 35,
-                text: 'Location',
-              ),
-              // GButton(
-              //   icon: Icons.favorite_border_outlined,
-              //   text: 'Likes',
-              // ),
-              GButton(
-                icon: Icons.settings_outlined,
-                iconSize: 35,
-                text: 'Settings',
-              ),
-            ],
-          ),
+          // bottomNavigationBar: GNav(
+          //   backgroundColor: const Color.fromARGB(152, 0, 0, 0),
+          //   color: Colors.white,
+          //   activeColor: Colors.white,
+          //   tabBackgroundColor: const Color.fromARGB(107, 98, 100, 98),
+          //   padding: const EdgeInsets.all(13),
+          //   tabMargin: const EdgeInsets.all(10),
+          //   onTabChange: (index) {},
+          //   tabs: const [
+          //     GButton(
+          //       icon: Icons.home_outlined,
+          //       iconSize: 35,
+          //       text: 'Home',
+          //     ),
+          //     GButton(
+          //       icon: Icons.place_outlined,
+          //       iconSize: 35,
+          //       text: 'Location',
+          //     ),
+          //     // GButton(
+          //     //   icon: Icons.favorite_border_outlined,
+          //     //   text: 'Likes',
+          //     // ),
+          //     GButton(
+          //       icon: Icons.settings_outlined,
+          //       iconSize: 35,
+          //       text: 'Settings',
+          //     ),
+          //   ],
+          // ),
         ),
       ),
     );

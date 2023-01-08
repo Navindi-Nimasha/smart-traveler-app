@@ -112,7 +112,7 @@ class _LListPageState extends State<LListPage> {
                             'Location',
                             style: TextStyle(
                               fontSize: 18,
-                              color: Colors.black,
+                              color: Color.fromARGB(255, 252, 251, 251),
                               fontWeight: FontWeight.bold,
                             ),
                           ),
