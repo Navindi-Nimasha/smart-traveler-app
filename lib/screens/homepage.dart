@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/guider/glist_page.dart';
+import 'package:flutter_application_1/models/shop/shoplist_page.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:flutter/cupertino.dart';
+import '../models/location/locationlist.dart';
 import 'sidebar.dart';
 
 class HomePage extends StatefulWidget {
@@ -51,66 +54,66 @@ class _HomePageState extends State<HomePage> {
             iconSize: 35,
           ),
         ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 10.0),
-            child: PopupMenuButton(
-              itemBuilder: (context) => [
-                PopupMenuItem(
-                  child: ListTile(
-                      leading: Icon(Icons.login_outlined, color: Colors.black),
-                      title: Text(
-                        "Log In",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
-                      )),
-                ),
-                PopupMenuItem(
-                  child: ListTile(
-                      leading:
-                          Icon(Icons.app_registration, color: Colors.black),
-                      title: Text(
-                        "Register As",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
-                      )),
-                ),
-                PopupMenuItem(
-                  child: Text(
-                    "Traveller",
-                    style: TextStyle(fontSize: 18),
-                  ),
-                ),
-                PopupMenuItem(
-                  child: Text(
-                    "Guider",
-                    style: TextStyle(fontSize: 18),
-                  ),
-                ),
-                PopupMenuItem(
-                  child: Text(
-                    "Shop",
-                    style: TextStyle(fontSize: 18),
-                  ),
-                ),
-                PopupMenuItem(
-                  child: ListTile(
-                      leading: Icon(Icons.logout_outlined, color: Colors.black),
-                      title: Text(
-                        "Log Out",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
-                      )),
-                ),
-              ],
-              child: Icon(
-                Icons.account_circle_rounded,
-                size: 35,
-                color: Colors.black,
-              ),
-            ),
-          ),
-        ],
+        // actions: [
+        //   Padding(
+        //     padding: EdgeInsets.only(right: 10.0),
+        //     child: PopupMenuButton(
+        //       itemBuilder: (context) => [
+        //         PopupMenuItem(
+        //           child: ListTile(
+        //               leading: Icon(Icons.login_outlined, color: Colors.black),
+        //               title: Text(
+        //                 "Log In",
+        //                 style: TextStyle(
+        //                     fontWeight: FontWeight.bold, fontSize: 18),
+        //               )),
+        //         ),
+        //         PopupMenuItem(
+        //           child: ListTile(
+        //               leading:
+        //                   Icon(Icons.app_registration, color: Colors.black),
+        //               title: Text(
+        //                 "Register As",
+        //                 style: TextStyle(
+        //                     fontWeight: FontWeight.bold, fontSize: 18),
+        //               )),
+        //         ),
+        //         PopupMenuItem(
+        //           child: Text(
+        //             "Traveller",
+        //             style: TextStyle(fontSize: 18),
+        //           ),
+        //         ),
+        //         PopupMenuItem(
+        //           child: Text(
+        //             "Guider",
+        //             style: TextStyle(fontSize: 18),
+        //           ),
+        //         ),
+        //         PopupMenuItem(
+        //           child: Text(
+        //             "Shop",
+        //             style: TextStyle(fontSize: 18),
+        //           ),
+        //         ),
+        //         PopupMenuItem(
+        //           child: ListTile(
+        //               leading: Icon(Icons.logout_outlined, color: Colors.black),
+        //               title: Text(
+        //                 "Log Out",
+        //                 style: TextStyle(
+        //                     fontWeight: FontWeight.bold, fontSize: 18),
+        //               )),
+        //         ),
+        //       ],
+        //       child: Icon(
+        //         Icons.account_circle_rounded,
+        //         size: 35,
+        //         color: Colors.black,
+        //       ),
+        //     ),
+        //   ),
+        // ],
       ),
       body: Container(
           width: double.infinity,
@@ -135,189 +138,268 @@ class _HomePageState extends State<HomePage> {
                   border: Border.all(color: Colors.white, width: 1),
                   borderRadius: BorderRadius.vertical(top: Radius.circular(70)),
                 ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 13,
-                    ),
-                    InkResponse(
-                      onTap: () {},
-                      child: Container(
-                        height: 130,
-                        width: 360,
-                        decoration: BoxDecoration(
-                          color: Colors.green.withOpacity(0.7),
-                          border: Border.all(color: Colors.white, width: 0.5),
-                          borderRadius: BorderRadius.circular(40),
-                        ),
-                        child: Row(
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(40),
-                              child: Image.asset(
-                                  'assets/images/homepage_new/Automatic Trip Planning.jpg'),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 10),
-                                  child: Text(
-                                    'GET STARTED',
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.yellow,
-                                        letterSpacing: 2,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 40),
-                                  child: Text(
-                                    'Automatic Trip',
-                                    style: TextStyle(
-                                        fontSize: 22,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 60),
-                                  child: Text(
-                                    'Planning',
-                                    style: TextStyle(
-                                        fontSize: 22,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 13,
                       ),
-                    ),
-                    SizedBox(
-                      height: 13,
-                    ),
-                    InkResponse(
-                      onTap: () {},
-                      child: Container(
-                        height: 130,
-                        width: 360,
-                        decoration: BoxDecoration(
-                          color: Colors.green.withOpacity(0.7),
-                          border: Border.all(color: Colors.white, width: 0.5),
-                          borderRadius: BorderRadius.circular(40),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 20),
-                                  child: Text(
-                                    'GET STARTED',
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.yellow,
-                                        letterSpacing: 2,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 40),
-                                  child: Text(
-                                    'Find Your Guider',
-                                    style: TextStyle(
-                                        fontSize: 22,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(40),
-                              child: Image.asset(
-                                  'assets/images/homepage_new/Find Your Guider.jpg'),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 13,
-                    ),
-                    Container(
-                      height: 130,
-                      width: 360,
-                      decoration: BoxDecoration(
-                        color: Colors.green.withOpacity(0.7),
-                        border: Border.all(color: Colors.white, width: 0.5),
-                        borderRadius: BorderRadius.circular(40),
-                      ),
-                      child: Row(
-                        children: [
-                          ClipRRect(
+                      InkResponse(
+                        onTap: () {
+                          
+                        },
+                        child: Container(
+                          height: 130,
+                          width: 360,
+                          decoration: BoxDecoration(
+                            color: Colors.green.withOpacity(0.7),
+                            border: Border.all(color: Colors.white, width: 0.5),
                             borderRadius: BorderRadius.circular(40),
-                            child: Image.asset(
-                                'assets/images/homepage_new/Find Travel Gears.jpg'),
                           ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
+                          child: Row(
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 10),
-                                child: Text(
-                                  'GET STARTED',
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      color: Colors.yellow,
-                                      letterSpacing: 2,
-                                      fontWeight: FontWeight.w600),
-                                ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(40),
+                                child: Image.asset(
+                                    'assets/images/homepage_new/Automatic Trip Planning.jpg'),
                               ),
                               SizedBox(
-                                height: 10,
+                                width: 5,
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 30),
-                                child: Text(
-                                  'Find Travel Gears',
-                                  style: TextStyle(
-                                      fontSize: 22,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 10),
+                                    child: Text(
+                                      'GET STARTED',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.yellow,
+                                          letterSpacing: 2,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 40),
+                                    child: Text(
+                                      'Automatic Trip',
+                                      style: TextStyle(
+                                          fontSize: 22,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 60),
+                                    child: Text(
+                                      'Planning',
+                                      style: TextStyle(
+                                          fontSize: 22,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
-                        ],
+                        ),
                       ),
-                      
-                    ),
-                  ],
+                      SizedBox(
+                        height: 13,
+                      ),
+                      InkResponse(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const GListPage()));
+                        },
+                        child: Container(
+                          height: 130,
+                          width: 360,
+                          decoration: BoxDecoration(
+                            color: Colors.green.withOpacity(0.7),
+                            border: Border.all(color: Colors.white, width: 0.5),
+                            borderRadius: BorderRadius.circular(40),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 20),
+                                    child: Text(
+                                      'GET STARTED',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.yellow,
+                                          letterSpacing: 2,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 40),
+                                    child: Text(
+                                      'Find Your Guider',
+                                      style: TextStyle(
+                                          fontSize: 22,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(40),
+                                child: Image.asset(
+                                    'assets/images/homepage_new/Find Your Guider.jpg'),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 13,
+                      ),
+                      InkResponse(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SListPage()));
+                        },
+                        child: Container(
+                          height: 130,
+                          width: 360,
+                          decoration: BoxDecoration(
+                            color: Colors.green.withOpacity(0.7),
+                            border: Border.all(color: Colors.white, width: 0.5),
+                            borderRadius: BorderRadius.circular(40),
+                          ),
+                          child: Row(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(40),
+                                child: Image.asset(
+                                    'assets/images/homepage_new/Find Travel Gears.jpg'),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 10),
+                                    child: Text(
+                                      'GET STARTED',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.yellow,
+                                          letterSpacing: 2,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 30),
+                                    child: Text(
+                                      'Find Travel Gears',
+                                      style: TextStyle(
+                                          fontSize: 22,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 13,
+                      ),
+                      InkResponse(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const LListPage()));
+                        },
+                        child: Container(
+                          height: 130,
+                          width: 360,
+                          decoration: BoxDecoration(
+                            color: Colors.green.withOpacity(0.7),
+                            border: Border.all(color: Colors.white, width: 0.5),
+                            borderRadius: BorderRadius.circular(40),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 20),
+                                    child: Text(
+                                      'GET STARTED',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.yellow,
+                                          letterSpacing: 2,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 40),
+                                    child: Text(
+                                      'Where to Go',
+                                      style: TextStyle(
+                                          fontSize: 22,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(40),
+                                child: Image.asset(
+                                    'assets/images/homepage_new/wheretogo.jpg'),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],

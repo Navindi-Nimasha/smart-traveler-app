@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/settings/settings.dart';
 
 class SideBar extends StatelessWidget {
   @override
@@ -74,7 +75,10 @@ class SideBar extends StatelessWidget {
                 'App Settings',
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
-              onTap: () => null,
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Settings()));
+              },
             ),
             ListTile(
               leading: Icon(

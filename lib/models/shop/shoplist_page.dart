@@ -108,7 +108,7 @@ class _SListPageState extends State<SListPage> {
                             'Location',
                             style: TextStyle(
                               fontSize: 18,
-                              color: Colors.black,
+                              color: Color.fromARGB(255, 255, 255, 255),
                               fontWeight: FontWeight.bold,
                             ),
                           ),
