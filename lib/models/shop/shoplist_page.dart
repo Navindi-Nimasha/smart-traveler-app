@@ -50,7 +50,7 @@ class _SListPageState extends State<SListPage> {
             image: AssetImage('assets/images/shops/shoplibg.jpg'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-                Color.fromARGB(204, 8, 68, 3), BlendMode.darken),
+                Color.fromARGB(111, 46, 46, 46), BlendMode.darken),
           ),
         ),
         child: Scaffold(
@@ -59,12 +59,12 @@ class _SListPageState extends State<SListPage> {
             children: <Widget>[
               Container(
                 alignment: Alignment.center,
-                height: 140,
+                height: 155,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(50),
                       bottomRight: Radius.circular(50)),
-                  color: Color.fromARGB(131, 231, 226, 226),
+                  color: Color.fromARGB(151, 78, 78, 78),
                 ),
                 child: Center(
                   child: Column(
