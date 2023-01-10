@@ -1,6 +1,9 @@
 import "package:flutter/material.dart";
 import "package:dropdown_button2/dropdown_button2.dart";
 import 'package:google_nav_bar/google_nav_bar.dart';
+import '../../screens/homepage.dart';
+import '../settings/settings.dart';
+import '../userlocation/locationofuser.dart';
 import 'shop.dart';
 
 class SListPage extends StatefulWidget {
@@ -221,25 +224,35 @@ class _SListPageState extends State<SListPage> {
             padding: const EdgeInsets.all(13),
             tabMargin: const EdgeInsets.all(10),
             onTabChange: (index) {},
-            tabs: const [
+            tabs: [
               GButton(
                 icon: Icons.home_outlined,
                 iconSize: 35,
                 text: 'Home',
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const HomePage()));
+                },
               ),
               GButton(
                 icon: Icons.place_outlined,
                 iconSize: 35,
                 text: 'Location',
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => const UserCurrentLocation()));
+                },
               ),
-              // GButton(
-              //   icon: Icons.favorite_border_outlined,
-              //   text: 'Likes',
-              // ),
               GButton(
                 icon: Icons.settings_outlined,
                 iconSize: 35,
                 text: 'Settings',
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const Settings()));
+                },
               ),
             ],
           ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/settings/settings.dart';
 
 class SideBar extends StatelessWidget {
+  const SideBar({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(

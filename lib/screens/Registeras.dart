@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/models/guider/glist_page.dart';
-import 'package:flutter_application_1/models/shop/shoplist_page.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:flutter/cupertino.dart';
 import '../models/guider/register_g.dart';
-import '../models/location/locationlist.dart';
 import '../models/shop/register_shop.dart';
 import '../models/traveller/register_trav.dart';
 import 'sidebar.dart';

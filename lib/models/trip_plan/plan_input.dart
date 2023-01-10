@@ -2,6 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
+import '../../screens/homepage.dart';
+import '../settings/settings.dart';
+import '../userlocation/locationofuser.dart';
+
 class TripPlanPage extends StatelessWidget {
   const TripPlanPage({super.key});
 
@@ -95,7 +99,7 @@ class TripPlanPage extends StatelessWidget {
               ),
             ],
           ),
-          bottomNavigationBar: const GNav(
+          bottomNavigationBar: GNav(
             backgroundColor: Color.fromARGB(179, 18, 66, 33),
             color: Colors.white,
             activeColor: Colors.white,
@@ -110,20 +114,30 @@ class TripPlanPage extends StatelessWidget {
                 icon: Icons.home_outlined,
                 iconSize: 35,
                 text: 'Home',
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const HomePage()));
+                },
               ),
               GButton(
                 icon: Icons.place_outlined,
                 iconSize: 35,
                 text: 'Location',
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => const UserCurrentLocation()));
+                },
               ),
-              // GButton(
-              //   icon: Icons.favorite_border_outlined,
-              //   text: 'Likes',
-              // ),
               GButton(
                 icon: Icons.settings_outlined,
                 iconSize: 35,
                 text: 'Settings',
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const Settings()));
+                },
               ),
             ],
           ),
