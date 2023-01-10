@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/settings/settings.dart';
+import 'package:flutter_application_1/screens/profileTraveler.dart';
 
 class SideBar extends StatelessWidget {
   @override
@@ -16,12 +17,21 @@ class SideBar extends StatelessWidget {
                 'beligaladilshan@gmail.com',
               ),
               currentAccountPicture: CircleAvatar(
-                child: ClipOval(
-                  child: Image.asset(
-                    'assets/images/homepage_new/bella.jpg',
-                    fit: BoxFit.cover,
-                    width: 90,
-                    height: 90,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProfileTraveler(),
+                        ));
+                  },
+                  child: ClipOval(
+                    child: Image.asset(
+                      'assets/images/homepage_new/bella.jpg',
+                      fit: BoxFit.cover,
+                      width: 90,
+                      height: 150,
+                    ),
                   ),
                 ),
               ),
