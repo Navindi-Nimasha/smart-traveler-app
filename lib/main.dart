@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_application_1/screens/homepage.dart';
 import 'package:flutter_application_1/screens/loginpage.dart';
+import 'package:flutter_application_1/screens/profileTraveler.dart';
 
 import 'models/location/locationlist.dart';
 
