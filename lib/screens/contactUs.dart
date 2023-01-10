@@ -13,7 +13,7 @@ class ContactUsPage extends StatelessWidget {
     return SafeArea(
       child: Container(
         //alignment: Alignment.center,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/images/contactus/bg.jpg'),
             fit: BoxFit.cover,
@@ -45,7 +45,7 @@ class ContactUsPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   Center(
@@ -69,7 +69,7 @@ class ContactUsPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   Row(
@@ -91,7 +91,7 @@ class ContactUsPage extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   Row(
@@ -114,7 +114,7 @@ class ContactUsPage extends StatelessWidget {
                     ],
                   ),
                   Row(
-                    children: [
+                    children: const [
                       SizedBox(
                         width: 60,
                       ),
@@ -135,9 +135,6 @@ class ContactUsPage extends StatelessWidget {
             tabBackgroundColor: Color.fromARGB(164, 12, 39, 14),
             padding: EdgeInsets.all(13),
             tabMargin: EdgeInsets.all(10),
-            // onTabChange: (index) {
-            //   print(index);
-            // },
             tabs: [
               GButton(
                 icon: Icons.home_outlined,
