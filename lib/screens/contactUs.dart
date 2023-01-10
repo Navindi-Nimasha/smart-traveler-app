@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+
+import '../models/settings/settings.dart';
+import '../models/userlocation/locationofuser.dart';
+import 'homepage.dart';
 
 class ContactUsPage extends StatelessWidget {
   const ContactUsPage({super.key});
@@ -12,6 +17,8 @@ class ContactUsPage extends StatelessWidget {
           image: DecorationImage(
             image: AssetImage('assets/images/contactus/bg.jpg'),
             fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(
+                Color.fromARGB(87, 114, 117, 114), BlendMode.darken),
           ),
         ),
         child: Scaffold(
@@ -120,6 +127,48 @@ class ContactUsPage extends StatelessWidget {
                 ],
               ),
             ),
+          ),
+          bottomNavigationBar: GNav(
+            backgroundColor: Color.fromARGB(179, 18, 66, 33),
+            color: Colors.white,
+            activeColor: Colors.white,
+            tabBackgroundColor: Color.fromARGB(164, 12, 39, 14),
+            padding: EdgeInsets.all(13),
+            tabMargin: EdgeInsets.all(10),
+            // onTabChange: (index) {
+            //   print(index);
+            // },
+            tabs: [
+              GButton(
+                icon: Icons.home_outlined,
+                iconSize: 35,
+                text: 'Home',
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const HomePage()));
+                },
+              ),
+              GButton(
+                icon: Icons.place_outlined,
+                iconSize: 35,
+                text: 'Location',
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => const UserCurrentLocation()));
+                },
+              ),
+              GButton(
+                icon: Icons.settings_outlined,
+                iconSize: 35,
+                text: 'Settings',
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const Settings()));
+                },
+              ),
+            ],
           ),
         ),
       ),
