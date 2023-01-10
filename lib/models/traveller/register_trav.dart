@@ -109,36 +109,6 @@ class RegisterTPage extends StatelessWidget {
               ),
             ],
           ),
-          // bottomNavigationBar: GNav(
-          //   backgroundColor: const Color.fromARGB(152, 0, 0, 0),
-          //   color: Colors.white,
-          //   activeColor: Colors.white,
-          //   tabBackgroundColor: const Color.fromARGB(107, 98, 100, 98),
-          //   padding: const EdgeInsets.all(13),
-          //   tabMargin: const EdgeInsets.all(10),
-          //   onTabChange: (index) {},
-          //   tabs: const [
-          //     GButton(
-          //       icon: Icons.home_outlined,
-          //       iconSize: 35,
-          //       text: 'Home',
-          //     ),
-          //     GButton(
-          //       icon: Icons.place_outlined,
-          //       iconSize: 35,
-          //       text: 'Location',
-          //     ),
-          //     // GButton(
-          //     //   icon: Icons.favorite_border_outlined,
-          //     //   text: 'Likes',
-          //     // ),
-          //     GButton(
-          //       icon: Icons.settings_outlined,
-          //       iconSize: 35,
-          //       text: 'Settings',
-          //     ),
-          //   ],
-          // ),
         ),
       ),
     );

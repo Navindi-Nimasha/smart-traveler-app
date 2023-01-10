@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/settings/settings.dart';
 import 'package:flutter_application_1/screens/profileTraveler.dart';
 
+import 'contactUs.dart';
+
 class SideBar extends StatelessWidget {
   const SideBar({super.key});
 
@@ -102,7 +104,12 @@ class SideBar extends StatelessWidget {
                 'Contact Us',
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
-              onTap: () => null,
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ContactUsPage()));
+              },
             ),
           ],
         ),

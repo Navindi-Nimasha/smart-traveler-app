@@ -31,7 +31,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # carousel_pro: ^0.0.13
+  carousel_pro: ^0.0.13
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -42,6 +42,8 @@ dependencies:
   flutter_svg: ^0.17.4 #this helps to use SVG in our app
   image_picker: ^0.8.3+1  #pick image
   path_provider: ^2.0.1   #store image
+  google_maps_flutter: ^2.1.1
+  geolocator: ^8.0.1
 
 dev_dependencies:
   flutter_test:
@@ -107,6 +109,7 @@ flutter:
     - assets/images/homepage_new/homepage.jpg
     - assets/images/homepage_new/wheretogo.jpg
     - assets/images/homepage_new/bgimage1.jpg
+    - assets/images/contactus/bg.jpg
 
 
 
