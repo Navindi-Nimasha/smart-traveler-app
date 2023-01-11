@@ -211,9 +211,9 @@ class BodyL extends StatelessWidget {
           color: Colors.white,
           thickness: 1,
         ),
-        const Text(
-          "Mihintale is a mountain peak near Anuradhapura in Sri Lanka. It is believed by Sri Lankans to be the site of a meeting between the Buddhist monk Mahinda and King Devanampiyatissa which inaugurated the presence of Buddhism in Sri Lanka. It is now a pilgrimage site, and the site of several religious monuments and abandoned structures. ",
-          style: TextStyle(color: Colors.white),
+        Text(
+          location.description,
+          style: const TextStyle(color: Colors.white),
         ),
       ],
     );
