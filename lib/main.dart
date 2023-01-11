@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/homepage.dart';
 import 'screens/loginpage.dart';
+//import 'package:firebase_core/firebase_core.dart';
 
 void main() {
   runApp(const MyApp());

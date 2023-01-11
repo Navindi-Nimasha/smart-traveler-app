@@ -146,6 +146,9 @@ class MyLoginForm extends StatefulWidget {
 }
 
 class _MyLoginFormState extends State<MyLoginForm> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
   final _formKey = GlobalKey<FormState>();
 
   // show the password or not
@@ -170,6 +173,7 @@ class _MyLoginFormState extends State<MyLoginForm> {
                     border: Border.all(width: 2, color: Colors.white),
                   ),
                   child: TextFormField(
+                    controller: _emailController,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter a valid email';
@@ -229,6 +233,7 @@ class _MyLoginFormState extends State<MyLoginForm> {
                     border: Border.all(width: 2, color: Colors.white),
                   ),
                   child: TextFormField(
+                    controller: _passwordController,
                     obscureText: _isObscure,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
