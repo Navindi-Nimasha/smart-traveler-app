@@ -226,7 +226,7 @@ class _HomePageState extends State<HomePage> {
                                 Padding(
                                   padding: EdgeInsets.only(left: 40),
                                   child: Text(
-                                    'Automatic Trip',
+                                    'Automatic Trips',
                                     style: TextStyle(
                                         fontSize: 22,
                                         color: Colors.white,
@@ -236,7 +236,7 @@ class _HomePageState extends State<HomePage> {
                                 Padding(
                                   padding: EdgeInsets.only(left: 60),
                                   child: Text(
-                                    'Planning',
+                                    'Plannings',
                                     style: TextStyle(
                                         fontSize: 22,
                                         color: Colors.white,
@@ -291,7 +291,7 @@ class _HomePageState extends State<HomePage> {
                                 Padding(
                                   padding: EdgeInsets.only(left: 40),
                                   child: Text(
-                                    'Find Your Guider',
+                                    'Find the Guider',
                                     style: TextStyle(
                                         fontSize: 22,
                                         color: Colors.white,
